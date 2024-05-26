@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujar Techo y Paneles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+    <script src="sketch.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Dibujar Techo y Paneles</h1>
+        
+        <div class="form-group">
+            <label for="anchoTecho">Ancho del Techo:</label>
+            <input type="number" class="form-control" id="anchoTecho" value="420">
+        </div>
+        
+        <div class="form-group">
+            <label for="largoTecho">Largo del Techo:</label>
+            <input type="number" class="form-control" id="largoTecho" value="250">
+        </div>
+        
+        <div class="form-group">
+            <label for="anchoPanel">Ancho del Panel:</label>
+            <input type="number" class="form-control" id="anchoPanel" value="80">
+        </div>
+        
+        <div class="form-group">
+            <label for="largoPanel">Largo del Panel:</label>
+            <input type="number" class="form-control" id="largoPanel" value="150">
+        </div>
+        
+        <button type="button" class="btn btn-primary" onclick="actualizarDimensiones()">Actualizar</button>
+    </div>
+</body>
+</html>
