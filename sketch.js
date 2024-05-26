@@ -1,4 +1,3 @@
-
 // posicion inical que puede ser 0
 var posIni_X = 50;
 var posIni_Y = 50;
@@ -37,8 +36,6 @@ function dibujarPanel(anchoPanel, largoPanel) {
     var cantidadPaneles = 0;
     var cantPanel_X = Math.trunc(anchoTecho/anchoPanel);
     var cantPanel_Y = Math.trunc(largoTecho/largoPanel);
-    var padding = 10;
-
 
     if (largoTecho-largoPanel*cantPanel_Y >= anchoPanel) {
         panelesRotados = Math.trunc(anchoTecho/largoPanel);
@@ -47,17 +44,15 @@ function dibujarPanel(anchoPanel, largoPanel) {
     // console.log('cantPanel_X',cantPanel_X);
     // console.log('cantPanel_Y',cantPanel_Y);
     // console.log('panelesRotados',panelesRotados);
-
     cantidadPaneles = cantPanel_X + panelesRotados;
-
     // console.log(Math.trunc(cantidadPaneles/cantPanel_X));
 
     var ubicacion_X = posIni_X;
     var ubicacion_Y = posIni_Y;
 
     for (var i = 0; i < Math.trunc(cantPanel_Y); i++) { // recorremos las filas
-        for (var g = 0; g < cantPanel_X; g++){  //recorremos las cantidades
-            ubicacion_X = posIni_X + g * anchoPanel; // concatenamos al ancho los paneles
+        for (var g = 0; g < cantPanel_X; g++){          //recorremos las cantidades
+            ubicacion_X = posIni_X + g * anchoPanel;    // concatenamos al ancho los paneles
             
             // dibujamos el panel
             stroke('red');
@@ -91,14 +86,13 @@ function dibujatTexto(rectX, rectY, rectWidth, rectHeight) {
     text("" + rectWidth, rectX + rectWidth / 2, rectY + rectHeight);
 }
 
-
 function actualizarDimensiones() {
     anchoTecho = parseInt(document.getElementById('anchoTecho').value);
     largoTecho = parseInt(document.getElementById('largoTecho').value);
     anchoPanel = parseInt(document.getElementById('anchoPanel').value);
     largoPanel = parseInt(document.getElementById('largoPanel').value);
 
-    clear();
+    clear(); // limpiamos el dibujo
     dibujarTecho(anchoTecho, largoTecho);
     dibujarPanel(anchoPanel, largoPanel);
 }
