@@ -4,14 +4,15 @@ var posIni_X = 50;
 var posIni_Y = 50;
 
 var anchoTecho = 420;
-var largoTecho = 250;
+var largoTecho = 450;
 
 var anchoPanel = 80;
 var largoPanel = 150;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-
+    var canvasContainer = document.getElementById('canvasContainer');
+    var canvas = createCanvas(windowWidth, windowHeight/2);
+    canvas.parent(canvasContainer);
     // Obtenemos los valores iniciales de los controles de entrada
     anchoTecho = parseInt(document.getElementById('anchoTecho').value);
     largoTecho = parseInt(document.getElementById('largoTecho').value);
@@ -51,34 +52,33 @@ function dibujarPanel(anchoPanel, largoPanel) {
 
     // console.log(Math.trunc(cantidadPaneles/cantPanel_X));
 
-    var innerRectX = posIni_X;
-    var innerRectY = posIni_Y;
+    var ubicacion_X = posIni_X;
+    var ubicacion_Y = posIni_Y;
 
     for (var i = 0; i < Math.trunc(cantPanel_Y); i++) { // recorremos las filas
         for (var g = 0; g < cantPanel_X; g++){  //recorremos las cantidades
-            innerRectX = posIni_X + g * anchoPanel; // concatenamos al ancho los paneles
+            ubicacion_X = posIni_X + g * anchoPanel; // concatenamos al ancho los paneles
             
             // dibujamos el panel
             stroke('red');
-            rect(innerRectX, innerRectY, anchoPanel, largoPanel);
-            dibujatTexto(innerRectX, innerRectY, anchoPanel, largoPanel);
+            rect(ubicacion_X, ubicacion_Y, anchoPanel, largoPanel);
+            dibujatTexto(ubicacion_X, ubicacion_Y, anchoPanel, largoPanel);
         }
-        innerRectY = posIni_Y + (i+1) * largoPanel; //concatenamos al alto los paneles
+        ubicacion_Y = posIni_Y + (i+1) * largoPanel; //concatenamos al alto los paneles
     }
 
     for (pr=0; pr < panelesRotados; pr++) {
         // console.log('cantidad')
-        innerRectX = posIni_X + pr * largoPanel;
+        ubicacion_X = posIni_X + pr * largoPanel;
 
         // dibujamos el panel
         stroke('red');
-        rect(innerRectX, innerRectY, largoPanel, anchoPanel);
-        dibujatTexto(innerRectX, innerRectY, largoPanel, anchoPanel);
+        rect(ubicacion_X, ubicacion_Y, largoPanel, anchoPanel);
+        dibujatTexto(ubicacion_X, ubicacion_Y, largoPanel, anchoPanel);
     }
 }
 
 function dibujatTexto(rectX, rectY, rectWidth, rectHeight) {
-    //texto izquierda
     textAlign(RIGHT, CENTER);
     push(); // Guarda el estado de la transformación actual
     translate(rectX,  rectY + rectHeight / 2); // Cambia el origen de la rotación
